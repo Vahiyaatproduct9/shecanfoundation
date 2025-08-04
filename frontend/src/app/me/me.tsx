@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import css from './css.module.css'
 import { motion } from 'framer-motion'
-
+interface datainterface {
+    code: string,
+    amount: number
+}
 
 export default function () {
+    const [data, setData] = useState<datainterface | {}>({})
     const [name, setName] = useState<string>('Intern')
     useEffect(() => {
         const n = localStorage.getItem('name')
@@ -25,6 +29,14 @@ export default function () {
 
         }
     }
+    const fetchData = async () => {
+        const res = await fetch('http://localhost:8080/data')
+        const data = res.json()
+       return data
+    }
+    useEffect(() => {
+        fetchData().then(data => setData(data));
+           }, []);
     const parentVariant = {
         hidden: {},
         visible: {
@@ -66,7 +78,7 @@ export default function () {
             <motion.div key={'head'} variants={childVariant} initial='hidden' animate='visible' className={css.container1}>
                 <motion.div variants={grandChildVariant} className={css.container1first}>
                     <h1>{greeting()} {name}</h1>
-                    <span>Referal Code: <b>#kishor2025</b></span>
+                    <span>Referal Code: <b>{data.length > 0 ? data.code : 'loading...'}</b></span>
                 </motion.div>
                 <motion.div variants={grandChildVariant} key='amount' className={css.container1sec}>
                     <div className={css.amount}>

@@ -2,11 +2,6 @@ import React from 'react'
 import css from './css.module.css'
 // import data from '@/app/data/data.js'
 import { motion } from 'framer-motion'
-const data = Array(100).fill(null).map((_, i) => ({
-    id: i + 1,
-    name: `Name ${i + 1}`,
-    amount: Math.floor(Math.random() * (50000 - 10000 + 1)) + 10000
-}))
 
 const parentVariant = {
     hidden: {},
@@ -26,9 +21,23 @@ const childVariant = {
         y: 0
     }
 }
+const fetchData = async () => {
+    const res = await fetch('http://localhost:8080/leaderboard/data')
+    const data = await res.json()
+    return data
+}
+interface datainterface {
+    id: number,
+    name: string,
+    amount: number
+}
 
 function Leaderboard() {
-    const slotItems = data.sort((a, b) => b.amount - a.amount).map((item, i) => {
+    const [leaderboardData, setLeaderboardData] = React.useState<datainterface[]>([]);
+    React.useEffect(() => {
+ fetchData().then(data => setLeaderboardData(data));
+    }, []);
+    const slotItems = leaderboardData.sort((a, b) => b.amount - a.amount).map((item, i) => {
         return (
             <motion.div variants={childVariant} key={item.id} className={css.slot}>
                 <div className={css.rank}>{i + 1}.</div>
