@@ -1,0 +1,123 @@
+.container {
+    heighT: 100%;
+    width: 100%;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+
+    >img.poster {
+        margin: 0;
+        padding: 0;
+        filter: blur(5px)
+            /*brightness(0.8) contrast(1.2)*/
+        ;
+        z-index: -1;
+        position: fixed;
+        aspect-ratio: 1/1;
+        object-position: center;
+        object-fit: cover;
+        height: 100%;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: calc(100% - 20px);
+        max-width: 550px;
+        padding: 20px;
+        /* justify-content: center; */
+
+
+        /* align-items: ; */
+        >div.imgContainer {
+            position: relative;
+            bottom: 120px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                height: 200px;
+                width: 200px;
+                border-radius: 10px;
+            }
+        }
+
+
+        label {
+            text-shadow: 0 0 black;
+            font-weight: 600;
+            color: white;
+            font-size: 1.1rem;
+
+            font-family: Geist;
+        }
+
+        input {
+            outline-color: red;
+            margin-bottom: 40px;
+            border-radius: 7px;
+            padding: 10px 10px 10px 20px;
+            font-weight: 600;
+            border-width: 0;
+            font-family: Geist Mono;
+            background: rgb(200, 200, 200);
+            box-shadow: 4px 4px 13px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        >div.button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: right;
+
+            button {
+                font-family: Ancizar Sans;
+                border: none;
+                background: red;
+                border-radius: 7px;
+                padding: 10px 30px;
+                font-weight: 600;
+                font-size: 1.1rem;
+                color: white;
+                cursor: pointer;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .curtain {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: red;
+        z-index: 100;
+
+        h1 {
+            font-family: Ancizar Sans;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        span {
+            font-weight: 500;
+            font-family: Geist;
+        }
+    }
+}

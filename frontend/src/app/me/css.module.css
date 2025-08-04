@@ -1,0 +1,121 @@
+.container {
+    max-width: 1200px;
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    box-sizing: border-box;
+    /* background: yellow; */
+
+    h1 {
+        font-family: Ancizar Sans;
+        font-size: 3rem;
+        color: rgb(50, 50, 50);
+
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    >div {
+        width: calc(100%-10px);
+    }
+
+    .container1 {
+        /* background: red; */
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+        margin: 10px;
+
+        >div {
+            box-sizing: border-box;
+            padding: 20px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            background: rgba(200, 200, 200, 0.6);
+            min-width: 400px;
+
+            span {
+                font-family: Open Sans, Geist;
+            }
+
+            &.container1first {
+                span {
+                    color: rgb(60, 41, 43);
+                }
+
+                flex: 2;
+            }
+
+            &.container1sec {
+                flex: 1;
+            }
+        }
+    }
+
+    .container2 {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        .container2head {
+            h1 {}
+        }
+
+        .container2body {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            min-width: 260px;
+            gap: 10px;
+
+            >div {
+                border-radius: 20px;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex: 1;
+                flex-direction: column;
+                border: 1px rgb(156, 156, 156) solid;
+                gap: 10px;
+
+                &.gold,
+                &.silver {
+                    background: rgba(200, 200, 200, 0.6);
+                    filter: contrast(0.2);
+                }
+
+                &.gold::before,
+                &.silver::before {
+                    position: absolute;
+                    content: 'Locked';
+                    font-weight: 900;
+                    font-size: 24px;
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                }
+
+                >img {
+                    height: 200px;
+                    width: 200px;
+                    object-fit: cover;
+                }
+
+                >span {
+                    font-family: Ancizar Sans;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    color: rgba(0, 0, 0, 0.7);
+                }
+            }
+        }
+
+    }
+}
