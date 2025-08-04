@@ -17,7 +17,7 @@
     }
 
     .containerBody {
-        width: calc(100% - 10px);
+        width: calc(100% - 20px);
         border-radius: 20px;
         margin: 10px;
         border: 1px rgb(160, 160, 160) solid;
