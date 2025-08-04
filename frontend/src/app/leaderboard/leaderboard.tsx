@@ -22,7 +22,7 @@ const childVariant = {
     }
 }
 const fetchData = async () => {
-    const res = await fetch('http://localhost:8080/leaderboard/data')
+    const res = await fetch('https://8080-firebase-shecanfoundationgit-1754302681012.cluster-iktsryn7xnhpexlu6255bftka4.cloudworkstations.dev/')
     const data = await res.json()
     return data
 }

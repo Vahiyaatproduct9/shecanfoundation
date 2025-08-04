@@ -14,6 +14,7 @@ app.get('/', async (req, res) => {
 
 app.get('/leaderboard/data', (req, res) => {
     res.send(data)
+    console.log('sending /leaderboard/data...')
 })
 
 app.get('/data', (req, res) => {
@@ -22,6 +23,7 @@ app.get('/data', (req, res) => {
         "amount": (100 + Math.round(Math.random() * 50)) * 100
     }
     res.send(data)
+    console.log('sending /data...')
 })
 
 app.listen(port, () => {

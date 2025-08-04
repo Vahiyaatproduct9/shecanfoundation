@@ -7,7 +7,7 @@ interface datainterface {
 }
 
 export default function () {
-    const [data, setData] = useState<datainterface | {}>({})
+    const [data, setData] = useState<datainterface>()
     const [name, setName] = useState<string>('Intern')
     useEffect(() => {
         const n = localStorage.getItem('name')
@@ -78,12 +78,12 @@ export default function () {
             <motion.div key={'head'} variants={childVariant} initial='hidden' animate='visible' className={css.container1}>
                 <motion.div variants={grandChildVariant} className={css.container1first}>
                     <h1>{greeting()} {name}</h1>
-                    <span>Referal Code: <b>{data.length > 0 ? data.code : 'loading...'}</b></span>
+                    <span>Referal Code: <b>{data ? data.code : 'loading..'}</b></span>
                 </motion.div>
                 <motion.div variants={grandChildVariant} key='amount' className={css.container1sec}>
                     <div className={css.amount}>
                         <span>Total Donations: </span>
-                        <h1>₹43,000</h1>
+                        <h1>₹{data ? data.amount : 'loading..'}</h1>
                     </div>
                 </motion.div>
             </motion.div>
