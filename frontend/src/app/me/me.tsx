@@ -30,13 +30,13 @@ export default function () {
         }
     }
     const fetchData = async () => {
-        const res = await fetch('http://localhost:8080/data')
+        const res = await fetch('https://shecanfoundation-production.up.railway.app/data')
         const data = res.json()
-       return data
+        return data
     }
     useEffect(() => {
         fetchData().then(data => setData(data));
-           }, []);
+    }, []);
     const parentVariant = {
         hidden: {},
         visible: {
